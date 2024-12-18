@@ -1,0 +1,26 @@
+services:
+  student:
+    image: kailash2giri/login-2432:1.1
+    ports:
+      - "8100:80"
+
+  trainer:
+    image: kailash2giri/login-2432:2.1
+    ports:
+      - "8200:80"
+
+  admin:
+    image: kailash2giri/login-2432:3.1
+    ports:
+      - "8300:80"
+  ecomm:
+     build: ./ecomm
+     image: kailash2giri/ecomm
+     ports:
+      - "8400:80"
+  food:
+    image: nginx
+    volumes:
+      - /home/ubuntu/app-services/food:/usr/share/nginx/html
+    ports:
+      - "8500:80"
